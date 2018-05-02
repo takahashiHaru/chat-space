@@ -1,54 +1,29 @@
-<<<<<<< HEAD
 ## usersテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
-|e-mail|string|null: false, add_index unique: true|
+|name|string|null: false, add_index|
 
 ### Association
-- belongs_to :group
-- has_many :group_user
+- has_many :group_users
 - has_many :messages
-- has_many :groups, through::user_group
-- has_many :groups, through::group_user
-=======
-# README
+- has_many :groups, through: :group_users
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
->>>>>>> parent of 58f440d... edit readme.md
-
-* Ruby version
-
-<<<<<<< HEAD
 ## messagesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |body|text|null: false|
 |image|string|null: false|
-|group_id|integer|null: false, foreign_key: true|
-|user_id|integer|null: false, foreign_key: true|
+|group_user_id|integer|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
 - belongs_to :group
-=======
-* System dependencies
 
-* Configuration
 
-* Database creation
->>>>>>> parent of 58f440d... edit readme.md
-
-* Database initialization
-
-## user_groupテーブル
-<<<<<<< HEAD
-## group_userテーブル
+## group_usersテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -64,21 +39,10 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|groupe_name|string|null: false|
-|user_id|integer|null: false, foreign_key: true|
-|message_id|integer|null: false, foreign_key: true|
+|group_name|string|null: false|
+|group_user_id|integer|null: falese|
 
 ### Association
-- has_many :users, through::user_group
+- has_many :group_users
+- has_many :users, through: :group_users
 - has_many :messages
-- has_many :users, through::group_user
-- has_many :group_user
-=======
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
->>>>>>> parent of 58f440d... edit readme.md
